@@ -4,8 +4,14 @@ import "../css/reset.css";
 import { useState } from "react";
 export default function App(){
     const [telaAtual, setTelaAtual] = useState(<TelaInicial proximaTela={mudarTela}/>)
-    function mudarTela(){
-        setTelaAtual(TelaFlashCards);
+    const estado = true;
+    function mudarTela(atual){
+        if (atual === "flashcard"){
+            setTelaAtual(<TelaInicial proximaTela={mudarTela}/>);
+        }
+        else{
+            setTelaAtual(<TelaFlashCards proximaTela={mudarTela}/>);
+        }
     }
     return(
         <>
