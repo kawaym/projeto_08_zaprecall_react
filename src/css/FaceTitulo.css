@@ -1,0 +1,26 @@
+.titulo-carta{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+}
+.botao-virar-carta{
+    bottom: var(--distancia-carta);
+    right: var(--distancia-carta);
+    position: absolute;
+}
+.virar-carta{
+    width: 49px;
+}
