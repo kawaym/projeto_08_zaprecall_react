@@ -1,12 +1,10 @@
 import "../css/FaceVirada.css"
-export default function FaceVirada({children: [titulo, conteudo,  selecionarResposta, aumentarResposta, avancarFace]}){
+export default function FaceVirada({children: [titulo, conteudo,  selecionarResposta, avancarFace, contarResultados]}){
     
     function responder(color, boxShadow){
         selecionarResposta(color, boxShadow);
+        contarResultados(color);
         avancarFace('face-virada');
-        if (color === '#FFEF61'){
-            aumentarResposta();
-        }
     }
     return(
         <>

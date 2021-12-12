@@ -5,11 +5,19 @@ import "../css/Flashcard.css"
 import FaceVirada from "./FaceVirada"
 import FaceRespondida from "./FaceRespondida"
 
-export default function Flashcard({children : [{titulo, quantidade, cartas}, aumentarResposta, proximaTela]}){
+export default function Flashcard({children : [{titulo, quantidade, cartas}, proximaTela]}){
     const cartasTeste = [...cartas];
     const [[respostaDadaColor, respostaDadaBoxShadow], setRespostaDada] = useState(["white", "rgba(0, 0, 0, 0.24)"]);
     const [cartaEmJogo, setCartaEmJogo] = useState(cartasTeste[0]);
     const [faceAtual, setFaceAtual] = useState('face-titulo');
+    const [resultado, setResultado] = useState(
+        {
+            zap: 0,
+            correto: 0,
+            incorreto: 0,
+            neutro: 0,
+        }
+    )
 
     function avancarFace(faceChamada){
         if (faceChamada === 'face-titulo'){
@@ -37,7 +45,7 @@ export default function Flashcard({children : [{titulo, quantidade, cartas}, aum
         }
         else if(cartaAMostrar === 'face-virada'){
             return(
-                <FaceVirada>{cartaEmJogo.titulo}{cartaEmJogo.conteudoCarta}{selecionarResposta}{aumentarResposta}{avancarFace}</FaceVirada>
+                <FaceVirada>{cartaEmJogo.titulo}{cartaEmJogo.conteudoCarta}{selecionarResposta}{avancarFace}{contarResultados}</FaceVirada>
             )
         }
         else if(cartaAMostrar === 'face-respondida'){
@@ -49,6 +57,22 @@ export default function Flashcard({children : [{titulo, quantidade, cartas}, aum
     function selecionarResposta(color, boxShadow){
         setRespostaDada([color, boxShadow]);
     }
+    function contarResultados(color){
+        switch (color){
+            case '#FFEF61':
+                setResultado({...resultado, zap: resultado.zap + 1});
+                break;
+            case '#62DB38':
+                setResultado({...resultado, correto: resultado.correto + 1});
+                break;
+            case '#F74848':
+                setResultado({...resultado, incorreto: resultado.incorreto + 1});
+                break;
+            default:
+                setResultado({...resultado, neutro: resultado.neutro + 1})
+                break;
+        }
+    }
     let estilo = {
         borderColor: respostaDadaColor,
         boxShadow: `0px 8px 24px ${respostaDadaBoxShadow}`,
@@ -57,6 +81,7 @@ export default function Flashcard({children : [{titulo, quantidade, cartas}, aum
         <div className="carta" style={estilo} data-identifier="flashcard">
             <span className="contador-carta" data-identifier="counter">{cartaEmJogo.cartaAtual + 1}/{quantidade}</span>
             {handleFaceMostrada(faceAtual)}
+            {resultado.zap}
         </div>
     )
 }
