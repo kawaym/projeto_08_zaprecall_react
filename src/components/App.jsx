@@ -6,13 +6,12 @@ import TelaCabecalho from "./TelaCabecalho";
 import TelaFinal from "./TelaFinal";
 export default function App(){
     const [telaAtual, setTelaAtual] = useState(<TelaInicial proximaTela={mudarTela}/>)
-    const estado = true;
     function mudarTela(atual){
-        if (atual === "flashcard"){
-            setTelaAtual(<TelaInicial proximaTela={mudarTela}/>);
+        if (atual === "inicial"){
+            setTelaAtual(<TelaCabecalho> {<TelaFlashCards  proximaTela={mudarTela}/>} </TelaCabecalho>);
         }
-        else{
-            setTelaAtual(<TelaCabecalho> {<TelaFlashCards  proximaTela={mudarTela}/>} </TelaCabecalho> );
+        else if (atual === "flashcards"){
+            setTelaAtual(<TelaCabecalho> {<TelaFinal></TelaFinal>} </TelaCabecalho>);
         }
     }
     return(

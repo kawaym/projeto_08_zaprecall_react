@@ -5,7 +5,7 @@ import "../css/Flashcard.css"
 import FaceVirada from "./FaceVirada"
 import FaceRespondida from "./FaceRespondida"
 
-export default function Flashcard({children : [{titulo, quantidade, cartas}, aumentarResposta]}){
+export default function Flashcard({children : [{titulo, quantidade, cartas}, aumentarResposta, proximaTela]}){
     const cartasTeste = [...cartas];
     const [[respostaDadaColor, respostaDadaBoxShadow], setRespostaDada] = useState(["white", "rgba(0, 0, 0, 0.24)"]);
     const [cartaEmJogo, setCartaEmJogo] = useState(cartasTeste[0]);
@@ -19,9 +19,14 @@ export default function Flashcard({children : [{titulo, quantidade, cartas}, aum
             setFaceAtual('face-respondida');
         }
         else if(faceChamada === 'face-respondida'){
-            setCartaEmJogo(cartasTeste[cartaEmJogo.cartaAtual + 1]);
-            setRespostaDada(["white", "rgba(0, 0, 0, 0.24)"]);
-            setFaceAtual('face-titulo');
+            if ((cartaEmJogo.cartaAtual + 1) < quantidade){
+                setCartaEmJogo(cartasTeste[cartaEmJogo.cartaAtual + 1]);
+                setRespostaDada(["white", "rgba(0, 0, 0, 0.24)"]);
+                setFaceAtual('face-titulo');
+            }
+            else{
+                proximaTela('flashcards');
+            }            
         }        
     }
     function handleFaceMostrada(cartaAMostrar){

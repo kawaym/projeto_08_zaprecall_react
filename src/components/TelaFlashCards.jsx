@@ -2,7 +2,7 @@ import { useState } from "react/cjs/react.development";
 import Flashcard from "./Flashcard";
 const deck = {
     titulo: "Conhecimentos Gerais React",
-    quantidade: 8,
+    quantidade: 3,
     cartas:
         [
             {
@@ -31,7 +31,7 @@ export default function TelaFlashCards({proximaTela}){
     return(
         <>
             <Flashcard>
-                {deck}{aumentarResposta}
+                {deck}{aumentarResposta}{proximaTela}
             </Flashcard>
         </>
     )
