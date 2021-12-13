@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/projeto_08_zaprecall_react/static/css/main.582e7fd6.chunk.css",
+    "main.js": "/projeto_08_zaprecall_react/static/js/main.9d94c520.chunk.js",
+    "main.js.map": "/projeto_08_zaprecall_react/static/js/main.9d94c520.chunk.js.map",
+    "runtime-main.js": "/projeto_08_zaprecall_react/static/js/runtime-main.091491fa.js",
+    "runtime-main.js.map": "/projeto_08_zaprecall_react/static/js/runtime-main.091491fa.js.map",
+    "static/js/2.94f1fe21.chunk.js": "/projeto_08_zaprecall_react/static/js/2.94f1fe21.chunk.js",
+    "static/js/2.94f1fe21.chunk.js.map": "/projeto_08_zaprecall_react/static/js/2.94f1fe21.chunk.js.map",
+    "index.html": "/projeto_08_zaprecall_react/index.html",
+    "static/css/main.582e7fd6.chunk.css.map": "/projeto_08_zaprecall_react/static/css/main.582e7fd6.chunk.css.map",
+    "static/js/2.94f1fe21.chunk.js.LICENSE.txt": "/projeto_08_zaprecall_react/static/js/2.94f1fe21.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.091491fa.js",
+    "static/js/2.94f1fe21.chunk.js",
+    "static/css/main.582e7fd6.chunk.css",
+    "static/js/main.9d94c520.chunk.js"
+  ]
+}
