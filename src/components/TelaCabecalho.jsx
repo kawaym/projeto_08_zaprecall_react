@@ -5,7 +5,7 @@ export default function TelaCabecalho({children}){
     return (
         <>
         <div className="cabecalho">
-            <img src={logoMini}/>
+            <img src={logoMini} alt="Logo"/>
         </div>
             {children}
         </>
