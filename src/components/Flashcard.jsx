@@ -48,11 +48,11 @@ export default function Flashcard({children : [{titulo, quantidade, cartas}, pro
     }
     function selecionarResposta(color, boxShadow){
         setRespostaDada([color, boxShadow]);
-    }
+    };
     let estilo = {
         borderColor: respostaDadaColor,
         boxShadow: `0px 8px 24px ${respostaDadaBoxShadow}`,
-    }
+    };
     return(
         <div className="carta" style={estilo} data-identifier="flashcard">
             <span className="contador-carta" data-identifier="counter">{cartaEmJogo.cartaAtual + 1}/{quantidade}</span>
