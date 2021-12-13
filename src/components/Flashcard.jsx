@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development"
+import { useState } from 'react';
 import FaceTitulo from "./FaceTitulo"
 import virar from "../assets/turn.png"
 import "../css/Flashcard.css"
