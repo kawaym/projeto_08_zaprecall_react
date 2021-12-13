@@ -7,7 +7,7 @@ import FaceRespondida from "./FaceRespondida"
 
 export default function Flashcard({children : [{titulo, quantidade, cartas}, proximaTela, contarResultados]}){
     const cartasTeste = [...cartas];
-    const [[respostaDadaColor, respostaDadaBoxShadow], setRespostaDada] = useState(["white", "rgba(0, 0, 0, 0.24)"]);
+    const [respostaDada, setRespostaDada] = useState(["white", "rgba(0, 0, 0, 0.24)"]);
     const [cartaEmJogo, setCartaEmJogo] = useState(cartasTeste[0]);
     const [faceAtual, setFaceAtual] = useState('face-titulo');
 
@@ -50,8 +50,8 @@ export default function Flashcard({children : [{titulo, quantidade, cartas}, pro
         setRespostaDada([color, boxShadow]);
     };
     let estilo = {
-        borderColor: respostaDadaColor,
-        boxShadow: `0px 8px 24px ${respostaDadaBoxShadow}`,
+        borderColor: respostaDada[0],
+        boxShadow: `0px 8px 24px ${respostaDada[1]}`,
     };
     return(
         <div className="carta" style={estilo} data-identifier="flashcard">
